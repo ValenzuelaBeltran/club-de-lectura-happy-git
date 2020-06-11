@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Primeros pasos con Git, GitHUb y RStudio</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Macarena Valenzuela Beltrán" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Primeros pasos con Git, GitHUb y RStudio
+### Macarena Valenzuela Beltrán
+### RladiesChile
+### (updated: 2020-06-11)
+
+---
+
+
+
+layout: false
+class: split-33 with-border
+
+.column.bg-main3[.content.vmiddle[
+.center[
+# Macarena Valenzuela Beltrán
+]
+&lt;img src="imagen/macarena2.jpg" width="10%" style="display: block; margin: auto;" /&gt;
+]]
+.column[.content[
+
+- Candidata a Doctora en Ciencia Política - Universidad Diego Portales 
+
+  - Co-organizadora de Rladies Concepción: [meet up](https://www.meetup.com/es/rladies-concepcion/), [twitter](https://twitter.com/RLadiesConce) 
+  
+  - Investigadora [Demodata](http://demodata.cl/), [ICSO](https://www.icso.cl/)
+  
+  - Profesora [Medotología de la Investigación APCP UdeC](https://github.com/ValenzuelaBeltran/Clases_TDI_2020)
+  
+  - Integrante [Fundación Hay Mujeres](https://www.haymujeres.cl/) y [Proyecto Amelia](https://twitter.com/ameliabio)
+
+- [RladiesChile](https://github.com/rladieschile) 
+
+- [Currículum Disponible](https://www.linkedin.com/in/macarena-soledad-valenzuela-beltr%C3%A1n-22644b120/?originalSubdomain=cl)
+]]
+---
+class: middle
+
+&lt;img src="https://media.giphy.com/media/11BbGyhVmk4iLS/giphy.gif" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+lass: middle  bg-main4
+
+# Referencias
+
+- El código de este material se basa en la presentación de [Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+
+- Bookdown de presente sesión Club de Lectura Rladies Chile: [Happy Git with R](https://happygitwithr.com/connect-intro.html) de [Jenny Bryan](https://jennybryan.org/)
+
+- Curso: Introducción a Git y GitHub de Coursera
+
+- Consejos, datos e ideas: [Octavio Valenzuela Beltrán](https://www.linkedin.com/in/octavio-valenzuela-49461612), [Riva Quiroga](https://rivaquiroga.cl/), RladiesChile
+
+- Documentación de paquete [usethis](https://usethis.r-lib.org/reference/create_package.html)
+---
+
+layout: false
+class: split-33 with-border
+
+.column.bg-main3[.content.vmiddle[
+.center[
+# Objetivos y Orden de Presentación]
+
+- **Objetivo**: Ayudar en los primeros pasos para en la utilizción de `Git` y `GitHub` directamente en `RStudio`.
+]]
+
+  #1)  Pre-requisitos
+   
+  #2)  Configuración de Git
+
+  #3)  Configuración de GitHub
+
+  #4)  Configuración de `RStudio` + `GitHub`
+  
+  #5)  Trabajando con proyectos en `RStudio` + `GitHub`
+  
+  [Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+
+---
+
+## Mapa Conceptual 
+
+&lt;img src="imagen/mapa_conceptual.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+## ¿Qué es un Sistema de Control de Versiones?
+
+-Un sistema de Control de Versiones (VCS) es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante.
+
+-Es fácil ententerlo como una máquina de tiempo que te ofrece la información registrada de tus decisiones en el pasado. 
+
+-Un VCS registra todos los cambios realizados en un archivo a lo largo del tiempo o trayectoria de trabajo de un proyecto determinado
+
+-NADA DE LO QUE SE HACE SE PIERDE Y TODO SE PUEDE ARREGlAR
+
+-Modificación, Almacenamiento y compromiso del cambio realizado
+
+_ Clientes:gitbush, github, RStudio, tu computador, tu tablet.
+
+.pull-right[
+&lt;img src="https://git-scm.com/book/en/v2/images/local.png" width="50%" style="display: block; margin: auto;" /&gt;
+]
+[Introd.Git y GitHub](https://www.coursera.org/learn/introduction-git-github), [git-scm](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Acerca-del-Control-de-Versiones)
+---
+class: middle
+# 1) Pre-requisitos
+
+.pull-left[
+## R 
+  - [Download desde este link](https://cran.r-project.org/)
+  - Use una versión mas reciente
+]
+
+.pull-right[
+&lt;img src="imagen/Logo-R-Software-300x263.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+&lt;img src="imagen/pantallaz_cran.png" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+class: middle
+# 1) Pre-requisitos
+
+.pull-left[
+## RStudio
+  - [Descarga en este link](https://www.rstudio.com/products/rstudio/download/)
+  - Usa la versión mas reciente
+  
+]
+
+.pull-right[
+&lt;img src="imagen/RStudio-Logo.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+&lt;img src="imagen/pantallazo_rstudio.png" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+class: middle
+#1)Pre-requisitos
+
+
+
+.pull-left[
+## Crear una cuenta gratuita en GitHub
+  - [Desde este link](https://github.com/)
+  - Si ya tiene una cuenta, No es necesario crear una nueva.
+  
+  
+  - Si eres estudiante: 
+    - [GitHub Student Developer Pack](https://education.github.com/pack) - Utiliza el correo electrónico institucional de la universidad.
+  
+]
+
+.pull-right[
+&lt;img src="imagen/github_logo.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+&lt;img src="imagen/pantallazo_github.png" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+class: middle
+
+# 1)Pre-requisitos
+
+
+
+.pull-left[
+
+## Git 
+  - [Descarga desde este link](https://git-scm.com/downloads)
+
+  
+
+]
+
+
+.pull-right[
+&lt;img src="https://git-scm.com/images/logo@2x.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+&lt;img src="imagen/pantallazo_git_.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+class: middle
+# 1) Pre-requisitos
+
+.pull-left[
+**En RStudio** [`usethis`](https://usethis.r-lib.org/)
+
+
+```r
+install.packages("usethis")
+library(usethis)
+```
+
+- Conferencia (en inglés) de [Jenny Bryan](https://jennybryan.org/):
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ZCeBnQBQ1h8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+]
+
+.pull-right[
+&lt;img src="https://usethis.r-lib.org/reference/figures/logo.png" style="display: block; margin: auto;" /&gt;
+]
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+&lt;img src="https://media.giphy.com/media/l41lKFzpUyuHSK03S/giphy.gif" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle-centre
+
+##2) Configuración de  Git
+
+¡Solo necesitas hacerlo una vez por computadora!
+
+-Dos posibilidades:Git o RStudio
+-Use el mismo correo electrónico asociado con su cuenta de GitHub
+
+En RStudio
+
+```r
+install.packages("usethis")
+library(usethis)
+usethis::use_git_config(user.name = "Beatriz Milz", # Escriba aquí su nombre
+                        user.email = "beatriz.milz@hotmail.com") # Escriba aquí su mail
+```
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+class: middle-centre
+
+##2) Configuración de  Git
+
+- En Git:
+
+`$ git config --global user.name "Beatriz Milz"`
+
+
+`$ git config --global user.email beatriz.milz@hotmail.com`
+
+
+&lt;img src="imagen/pantallazo_git_bush.png" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+class: middle
+## 3) Configuración de GitHub + RStudio
+
+- Crea un nuevo token en GitHub:
+
+
+```r
+usethis::browse_github_token()
+# ✔ Opening URL 'https://github.com/settings/tokens/new?scopes=repo,gist&amp;description=R:GITHUB_PAT'
+# ● Call `usethis::edit_r_environ()` to open '.Renviron'.
+# ● Store your PAT with a line like:
+*#   GITHUB_PAT=xxxyyyzzz
+#   [Copied to clipboard]
+# ● Make sure '.Renviron' ends with a newline!
+```
+
+
+Se abrirá una página de GitHub con la configuración necesaria. Puede cambiar el nombre del token para ver a qué computadora se está vinculando. Crea el nuevo token.
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+class: middle  bg-main4
+### Exemplo:
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/gifs/browse-github-token2.gif" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+Copiar un token generado
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/copy-token.png" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5)
+
+---
+- Abra un archivo `.Renviron`:
+
+```r
+usethis::edit_r_environ()
+# ● Modify 'C:/Users/beatr/Documents/.Renviron'
+# ● Restart R for changes to take effect
+```
+- Cree una nueva línea en el formulario GITHUB_PAT = SU_TOKEN, agregue el token, omita una línea y guarde el archivo
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/githubpath.png" width="60%" style="display: block; margin: auto;" /&gt;
+- **Reinicie RStudio**:  CTRL + SHIFT + F10
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+class: middle centre
+
+## Trabajando proyectos con RStudio y GitHub
+
+Existen tres métodos
+
+1) Clonar un repositorio en GitHub
+
+2) Creando un repositorio nuevo directamente desde RStudio
+
+3) A partir de un repositorio existente, hacer un fork y clonar directamente a RStudio 
+
+---
+# Método 1 - Clonar un repositorio en GitHub
+- Cree un repositorio en GitHub: abra una página de un repositorio existente.
+- En RStudio, cree un nuevo proyecto: File &gt; New Project 
+.pull-left[
+- En la pestaña "Create Project", selecione la opción **Version Control**.
+
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/proj-version-control-1.PNG" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+- En la pestaña "Create Project from Version Control", selecione la opción **Git**.
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/proj-version-control-2.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+- En la pestaña "Clone Git Repository":
+  - **Repository URL**: pegue el enlace al repositorio
+  - **Project directory name**: Después de ingresar a la URL del repositorio, este campo se completará automáticamente.
+  - **Crear proyecto como subdirectorio de**: seleccione el directorio donde desea mantener su copia local del repositorio.
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/proj-version-control-3.png" width="50%" style="display: block; margin: auto;" /&gt;
+- **RStudio** clonará el repositorio y abrirá RProj (si aún no existe se creará).
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+# Método 2 - Creando un repositorio nuevo directamente desde RStudio
+- Vamos usar la función `create_project()` 
+  - Crea un proyeto `.Rproj`
+  - Argumento importante: `path = ` Es la "ruta" al directorio (carpeta). Si el directorio ya existe, se utiliza. Si no existe, se crea. 
+  - Tenga cuidado con el nombre del proyecto, ya que será el mismo nombre que se utilizará en el repositorio. No debe usar el nombre de un repositorio existente en su GitHub.
+  
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5)   
+---
+## Creando un proyecto desde RStudio
+- [Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5), aconseja dejar todos los repositorios de GitHub en una carpeta `GitHub /`. Entonces, como ejemplo, dentro de la carpeta GitHub se crea el proyecto llamado Teste-MeetupR. Este será el nombre de la carpeta creada y luego el repositorio en GitHub.
+
+```r
+usethis::create_project("GitHub/Teste-MeetupR") 
+# ✔ Creating 'GitHub/Teste-MeetupR/'
+# ✔ Setting active project to 'C:/Users/beatr/Documents/GitHub/Teste-MeetupR'
+# ✔ Creating 'R/'
+# ✔ Writing 'Teste-MeetupR.Rproj'
+# ✔ Adding '.Rproj.user' to '.gitignore'
+# ✔ Opening 'GitHub/Teste-MeetupR/' in new RStudio session
+# ✔ Setting active project to '&lt;no active project&gt;'
+```
+- RStudio abrirá otra ventana, con el nuevo proyecto creado.
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+##Fijarnos si el nuevo proyecto creado está conectado a git y github
+
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/novo_projeto.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+&lt;img src="imagen/Resultado.png" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+## Repositorio Creado
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/prints/criou-repositorio-github.PNG" width="100%" style="display: block; margin: auto;" /&gt;
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+## Función para crear un archivo `README.md`
+
+```r
+usethis::use_readme_md()
+```
+- El archivo será creado y abierto para ser editado y guardado.
+&lt;img src="https://media2.giphy.com/media/1iu8uG2cjYFZS6wTxv/giphy-downsized.gif" width="30%" style="display: block; margin: auto;" /&gt;
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+class: middle  bg-main4
+### Exemplo:
+&lt;img src="https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/img/gifs/create-proj2.gif" width="100%" style="display: block; margin: auto;" /&gt;
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+##Método 3: A partir de un repositorio existente, hacer un fork y clonar directamente a RStudio 
+
+Usaremos la función `usethis::create_from_github()`.
+- Argumentos importantes:
+  - `repo_spec = ` repositorio con el que debe trabajar. debe estar en el formato: "usuario_github/repositorio". ver ejemplo a continuación.
+  - `destdir =` directorio donde se guardan los archivos
+  - `fork =` si es igual a TRUE, bifurcará el repositorio. Solo funcionará si el token GitHub se ha configurado correctamente.
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+
+### Exemplo de uso de la función `create_from_github()`
+
+- Ejemplo: fork y clon de un proyecto [Data Science in a Box](https://github.com/rstudio-education/datascience-box/):
+https://github.com/rstudio-education/datascience-box/
+
+
+```r
+usethis::create_from_github("rstudio-education/datascience-box",
+                   destdir = "C:/Users/beatr/Documents/GitHub", 
+                   fork = TRUE)
+# ✔ Creating 'C:/Users/beatr/Documents/GitHub/datascience-box/'
+# ✔ Forking 'rstudio-education/datascience-box'
+# ✔ Cloning repo from 'https://github.com/beatrizmilz/datascience-box.git' into 'C:/Users/beatr/Documents/GitHub/datascience-box'
+# ✔ Setting active project to 'C:/Users/beatr/Documents/GitHub/datascience-box'
+# ✔ Adding 'upstream' remote: 'https://github.com/rstudio-education/datascience-box.git'
+# ✔ Pulling changes from GitHub source repo 'upstream/master'
+# ✔ Setting remote tracking branch for local 'master' branch to 'upstream/master'
+# ✔ Opening 'C:/Users/beatr/Documents/GitHub/datascience-box/' in new RStudio session
+# ✔ Setting active project to 'C:/Users/beatr/Documents/GitHub/RLadies-Git-RStudio-2019'
+```
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+# Imaginación estructra Master y Brunch
+
+&lt;img src="imagen/árbol_master_brunch.png" width="100%" style="display: block; margin: auto;" /&gt;
+[origen de la imagen](https://toppng.com/raphic-freeuse-download-arbol-vector-arboles-vectirizados-PNG-free-PNG-Images_222172)
+---
+
+## Crear un branch
+- Antes de hacer cualquier modificación, cree un branch utilizando `usethis::pr_init()`. 
+- Argumento importante: `branch =` indica el nombre de la rama que desea crear. 
+
+```r
+usethis::pr_init(branch = "teste")
+# ✔ Checking that local branch 'master' has the changes in 'origin/master'
+# ✔ Creating local PR branch 'teste'
+# ✔ Switching to branch 'teste'
+# ● Use `pr_push()` to create PR
+```
+- Realice contribuciones y siempre haga confirmación con mensaje que aclaren los cambios.
+- Cuando termine las contribuciones necesarias use `pr_push()`:
+
+```r
+pr_push()
+# ✔ Pushing local 'teste' branch to 'origin:teste'
+# ✔ Setting upstream tracking branch for 'teste' to 'origin/teste'
+# ✔ Create PR at link given below
+# ✔ Opening URL 'https://github.com/beatrizmilz/RLadies-Git-RStudio-2019/compare/teste'
+```
+- Se abrirá una página de GitHUb, por lo que se puede completar la solucitud de pull request.
+
+[Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#5) 
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
